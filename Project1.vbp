@@ -1,9 +1,11 @@
 Type=Exe
 Form=Form1.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
-Startup="Form1"
+IconForm="Form_Main"
+Startup="Form_Main"
+HelpFile=""
 Command32=""
-Name="Project1"
+Name="LojaVb6"
 HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
