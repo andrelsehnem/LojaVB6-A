@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin VB.Form Form1 
    Caption         =   "Form1"
-   ClientHeight    =   3015
+   ClientHeight    =   7935
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   4560
+   ClientWidth     =   20130
    BeginProperty Font 
       Name            =   "Tahoma"
       Size            =   8.25
@@ -15,8 +15,8 @@ Begin VB.Form Form1
       Strikethrough   =   0   'False
    EndProperty
    LinkTopic       =   "Form1"
-   ScaleHeight     =   3015
-   ScaleWidth      =   4560
+   ScaleHeight     =   7935
+   ScaleWidth      =   20130
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
 End
