@@ -97,26 +97,19 @@ Private Sub bt_ValidCPF_Click()
     MsgBox "Esse botão vai validar um CPF", vbInformation, "Aviso de Utilidade Pública"
 End Sub
 
+Private Sub Form_Load()
+
+End Sub
+
 Private Sub frm_Menu_DblClick()
 
     MsgBox "Tem que abrir um caixa antes cara", vbCritical, "Aviso de Utilidade Pública"
 
 End Sub
 
-Private Function conectaBD()
+Private Function conectaBD1()
     'TODO fazer a função para conectar no banco de dados, só copiei essa e não terminei de ver se ta certo'
-    Set cnn = CreateObject("ADODB.Connection")
-
-    cnn.Open "driver={MySQL};server=localhost;pwd=admin;database=lojinha"
-
-    Set Rs = CreateObject("ADODB.RecordSet")
-
-    Set Rs.ActiveConnection = cnn
-    Rs.Open "select * from Users"
-
-    Ssql = "insert into Users (uname,upwd,uemail) values (Text1.text,Text3.text,Text2.text)"
-    cnn.Execute Ssql
-
+   'ta na mdl_conexao'
 End Function
 
 Private Function comandoSql(cmsSql)

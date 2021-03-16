@@ -1,7 +1,8 @@
 Type=Exe
 Form=Form1.frm
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Form=frm_caixas.frm
+Module=mdl_conexao; mdl_conexao.bas
 IconForm="frm_Main"
 Startup="frm_Main"
 HelpFile=""

@@ -1,2 +1,5 @@
 [History]
-1=#P0#=mb	#P1#=Form_Load	#P2#=LojaVb6/Form_Main/Form_Load	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20210315135247	#P7#=0	#P8#=-1	.
+1=#P0#=mb	#P1#=conectaBD1	#P2#=LojaVb6/frm_Main/conectaBD1	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210316090344	#P7#=0	#P8#=-1	.
+2=#P0#=mb	#P1#=conectaBD	#P2#=LojaVb6/frm_Main/conectaBD	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210316082322	#P7#=0	#P8#=0	.
+3=#P0#=mb	#P1#=Connecta	#P2#=LojaVb6/mdl_conexao/Connecta	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210316090431	#P7#=0	#P8#=7	.
+4=#P0#=mb	#P1#=Command1_Click	#P2#=LojaVb6/frm_caixas/Command1_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20210316081619	#P7#=0	#P8#=0	.
