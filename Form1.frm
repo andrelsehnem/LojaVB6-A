@@ -76,12 +76,19 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim cmdSql As String
+Public cmdSql As String
+Public conn As ADODB.Connection
+Public rs As ADODB.Recordset
+Public fld As ADODB.Field
+Public SQL As String
+Public libcon As ADODB.Connection
+Public sqlstr As String
 
 
 Private Sub bt_caixas_Click()
     frm_caixas.Show
-    conectaBD
+    Module1.dbconect
+    
 
 End Sub
 
@@ -102,24 +109,56 @@ Private Sub frm_Menu_DblClick()
     MsgBox "Tem que abrir um caixa antes cara", vbCritical, "Aviso de Utilidade Pública"
 
 End Sub
+Private Function conectadb2()
+    MsgBox "teste"
+End Function
 
-Private Function conectaBD()
+Public Function conectaBD1()
     'TODO fazer a função para conectar no banco de dados, só copiei essa e não terminei de ver se ta certo'
-    Set cnn = CreateObject("ADODB.Connection")
+ '   Set cnn = CreateObject("ADODB.Connection")
 
-    cnn.Open "driver={MySQL};server=localhost;pwd=admin;database=lojinha"
+ '   cnn.Open "Driver={MariaDB ODBC 3.1.11 Driver};Server=localhost;UID=root;pwd=admin;database=lojinha; port=3306;option3"
+'
+ '   Set rs = CreateObject("ADODB.RecordSet")
+'
+ '   Set rs.ActiveConnection = cnn
+  '  rs.Open "select * from Users"
+'
+ '   Ssql = "insert into Users (uname,upwd,uemail) values (Text1.text,Text3.text,Text2.text)"
+  '  cnn.Execute Ssql
+  On Error GoTo dbconnect_Exit
 
-    Set Rs = CreateObject("ADODB.RecordSet")
-
-    Set Rs.ActiveConnection = cnn
-    Rs.Open "select * from Users"
-
-    Ssql = "insert into Users (uname,upwd,uemail) values (Text1.text,Text3.text,Text2.text)"
-    cnn.Execute Ssql
+    
+  Set libcon = New ADODB.Connection
+  
+  libcon.ConnectionString = "Driver={MariaDB ODBC 3.1.11 Driver};Server=localhost;UID=root;pwd=admin;db=lojinha; port=3306;option3"
+  
+  libcon.CursorLocation = adUseClient
+  libcon.Open
+  
+dbconnect_Exit:
+  MsgBox "Ocorreu um erro"
+  
+  
+  
 
 End Function
 
-Private Function comandoSql(cmsSql)
+Public Function comandoSql(cmsSql)
+
+End Function
+
+Public Function conectaBD()
+    Dim DBCon As ADODB.Connection
+    Dim Cmd As ADODB.Command
+    Dim rs As ADODB.Recordset
+    Dim strName As String
+
+    'Create a connection to the database
+    Set DBCon = New ADODB.Connection
+    DBCon.CursorLocation = adUseClient
+    'This is a connectionstring to a local MySQL server
+    DBCon.Open "server=localhost;pwd=admin;database=lojinha"
 
 End Function
 
