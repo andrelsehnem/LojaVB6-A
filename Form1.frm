@@ -1,7 +1,7 @@
 VERSION 5.00
-Begin VB.Form Form_Main 
+Begin VB.Form frm_Main 
    BackColor       =   &H80000016&
-   Caption         =   "Loja de vender"
+   Caption         =   "Lojinha - Versão VB6"
    ClientHeight    =   7770
    ClientLeft      =   120
    ClientTop       =   465
@@ -55,7 +55,6 @@ Begin VB.Form Form_Main
    Begin VB.Frame frm_Menu 
       BackColor       =   &H80000016&
       Caption         =   "Menu Inicial"
-      Enabled         =   0   'False
       Height          =   6375
       Left            =   120
       TabIndex        =   0
@@ -72,31 +71,55 @@ Begin VB.Form Form_Main
       Width           =   5295
    End
 End
-Attribute VB_Name = "Form_Main"
+Attribute VB_Name = "frm_Main"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim cmdSql As String
+
 
 Private Sub bt_caixas_Click()
-MsgBox "Esse botão vai abrir os caixais", vbDefaultButton2, "Aviso de Utilidade Pública"
+    frm_caixas.Show
+    conectaBD
+
 End Sub
 
 Private Sub bt_CorFundo_Click()
-MsgBox "Esse botão vai alterar a cor de fundo do aplicativo", vbInformation, "Aviso de Utilidade Pública"
+    MsgBox "Esse botão vai alterar a cor de fundo do aplicativo", vbInformation, "Aviso de Utilidade Pública"
 End Sub
 
 Private Sub bt_fechar_Click()
-MsgBox "Esse botão vai fechar tudo", vbOKOnly, "Aviso de Utilidade Pública"
+    Unload Me
 End Sub
 
 Private Sub bt_ValidCPF_Click()
-MsgBox "Esse botão vai alterar a cor de fundo do aplicativo", vbInformation, "Aviso de Utilidade Pública"
+    MsgBox "Esse botão vai validar um CPF", vbInformation, "Aviso de Utilidade Pública"
 End Sub
 
 Private Sub frm_Menu_DblClick()
 
-MsgBox "Tem que abrir um caixa antes cara", vbCritical, "Aviso de Utilidade Pública"
+    MsgBox "Tem que abrir um caixa antes cara", vbCritical, "Aviso de Utilidade Pública"
 
 End Sub
+
+Private Function conectaBD()
+    'TODO fazer a função para conectar no banco de dados, só copiei essa e não terminei de ver se ta certo'
+    Set cnn = CreateObject("ADODB.Connection")
+
+    cnn.Open "driver={MySQL};server=localhost;pwd=admin;database=lojinha"
+
+    Set Rs = CreateObject("ADODB.RecordSet")
+
+    Set Rs.ActiveConnection = cnn
+    Rs.Open "select * from Users"
+
+    Ssql = "insert into Users (uname,upwd,uemail) values (Text1.text,Text3.text,Text2.text)"
+    cnn.Execute Ssql
+
+End Function
+
+Private Function comandoSql(cmsSql)
+
+End Function
 
