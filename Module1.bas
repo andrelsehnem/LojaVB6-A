@@ -41,7 +41,7 @@ Function ComandoSQL(strcmd As String)
 End Function
 
 
-Function CreateDB() 'TODO verificar sempre se tem todas as tabelas aqui'
-    ComandoSQL ("CREATE DATABASE" & frm_NoDB.databaseName)
+Function CreateDB()
+    
     
 End Function
