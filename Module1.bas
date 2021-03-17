@@ -1,11 +1,11 @@
 Attribute VB_Name = "mdl_connection"
 Public cn As ADODB.Connection
 Public rs As ADODB.Recordset
+Dim comandToDb As String
 
 
-Function dbconect()
 
-
+Function Dbconect()
 
         On Error GoTo erroConexao
         
@@ -13,14 +13,16 @@ Function dbconect()
         Set rs = New ADODB.Recordset
         Dim StringConexao As String
                
-        StringConexao = "Driver={MySQL ODBC 8.0 ANSI Driver};Server=localhost;User=root;pwd=admin;database=" & frm_Main.databaseName & "; port=3306;option3"
+        StringConexao = "Driver={MySQL ODBC 8.0 ANSI Driver};Server=localhost;User=root;pwd=admin;database=" & frm_NoDB.databaseName & "; port=3306;option3"
         
         cn.CursorLocation = adUseClient
         cn.ConnectionString = StringConexao
         cn.Open
         
-        rs.Open "insert into log_login (pc,appLanguage) VALUES('pcAndre', 'VB6')", cn, adOpenDynamic, adLockReadOnly
-        frm_Main.isDBconected = True
+        ComandoSQL ("insert into log_login (pc,appLanguage) VALUES('pcAndre', 'VB6')")
+        frm_NoDB.isDBconected = True
+        
+        MsgBox "Conexão com o banco estabelecida", vbInformation, "Conectado"
  
         
         Exit Function
@@ -31,3 +33,15 @@ erroConexao:
         
 End Function
 
+
+Function ComandoSQL(strcmd As String)
+    
+    rs.Open strcmd, cn, adOpenDynamic, adLockReadOnly
+    
+End Function
+
+
+Function CreateDB() 'TODO verificar sempre se tem todas as tabelas aqui'
+    ComandoSQL ("CREATE DATABASE" & frm_NoDB.databaseName)
+    
+End Function

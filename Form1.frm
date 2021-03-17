@@ -5,7 +5,7 @@ Begin VB.Form frm_Main
    ClientHeight    =   7800
    ClientLeft      =   225
    ClientTop       =   570
-   ClientWidth     =   15540
+   ClientWidth     =   15615
    BeginProperty Font 
       Name            =   "Tahoma"
       Size            =   8.25
@@ -18,8 +18,9 @@ Begin VB.Form frm_Main
    LinkTopic       =   "Form1"
    ScaleHeight     =   7800
    ScaleMode       =   0  'User
-   ScaleWidth      =   40000
+   ScaleWidth      =   40193.05
    ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton bt_caixas 
       Caption         =   "Caixa"
       Height          =   615
@@ -59,7 +60,7 @@ Begin VB.Form frm_Main
       Left            =   120
       TabIndex        =   0
       Top             =   120
-      Width           =   18975
+      Width           =   15375
    End
    Begin VB.Label lbl_menu 
       AutoSize        =   -1  'True
@@ -84,25 +85,8 @@ Public fld As ADODB.Field
 Public SQL As String
 Public libcon As ADODB.Connection
 Public sqlstr As String
-Public isDBconected As Boolean
-Public databaseName As String
 
 
-
-
-Private Sub bt_caixas_Click()
-    databaseName = "lojinha"
-    mdl_connection.dbconect
-    If isDBconected Then
-        frm_caixas.Show
-        lbl_menu.Caption = "Conexão estabelecida - Banco de dados " & databaseName
-        
-    End If
-    
-
-    
-
-End Sub
 
 Private Sub bt_CorFundo_Click()
     MsgBox "Esse botão vai alterar a cor de fundo do aplicativo", vbInformation, "Aviso de Utilidade Pública"
@@ -116,8 +100,10 @@ Private Sub bt_ValidCPF_Click()
     MsgBox "Esse botão vai validar um CPF", vbInformation, "Aviso de Utilidade Pública"
 End Sub
 
-Private Sub Form_Load()
-    isDBconected = False
+Public Sub Form_Load()
+    
+    
+
 End Sub
 
 Private Sub frm_Menu_DblClick()
@@ -126,7 +112,7 @@ Private Sub frm_Menu_DblClick()
 
 End Sub
 
-Public Function comandoSql(cmsSql)
+Public Function ComandoSQL(cmsSql)
 
 End Function
 
