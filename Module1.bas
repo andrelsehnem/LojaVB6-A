@@ -7,7 +7,7 @@ Function dbconect()
 
 
 
-        On Error GoTo erroConexao
+        'On Error GoTo erroConexao
         
         Set cn = New ADODB.Connection
         Set rs = New ADODB.Recordset
@@ -18,32 +18,16 @@ Function dbconect()
         cn.CursorLocation = adUseClient
         cn.ConnectionString = StringConexao
         cn.Open
+        
+        rs.Open "insert into log_login (pc,appLanguage) VALUES('pcAndre', 'VB6')", cn, adOpenDynamic, adLockReadOnly
         frm_Main.isDBconected = True
+ 
         
         Exit Function
         
-erroConexao:
-        MsgBox "Ocorreu um erro na conexão!, tente novamente.", vbInformation, "Aviso"
+'erroConexao:
+       ' MsgBox "Ocorreu um erro na conexão!, tente novamente.", vbInformation, "Aviso"
         
         
 End Function
 
-
-Sub dbComand(sqlstr)
-
-  '  On Error GoTo dbcomandExit
-    
-    
-    
- '   rs.Open sqlstr, libocon, adOpenKeyset, adLockOptimistic
-    
- '   rs.Update
- '   rs.Close
-    
-    
-    
- '   dbcomandExit
- '   MsgBox "Não executou o comando"
- '   Exit Sub
-    
-End Sub
