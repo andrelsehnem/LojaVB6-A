@@ -2,13 +2,15 @@ VERSION 5.00
 Begin VB.Form frm_caixas 
    Caption         =   "Caixas Disponiveis"
    ClientHeight    =   4890
-   ClientLeft      =   120
-   ClientTop       =   465
+   ClientLeft      =   3720
+   ClientTop       =   5370
    ClientWidth     =   8805
    LinkTopic       =   "frm_caixas"
+   MaxButton       =   0   'False
+   Moveable        =   0   'False
    ScaleHeight     =   4890
    ScaleWidth      =   8805
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton Command1 
       Caption         =   "Fechar"
       Height          =   495

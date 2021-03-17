@@ -2,10 +2,10 @@ VERSION 5.00
 Begin VB.Form frm_Main 
    BackColor       =   &H80000016&
    Caption         =   "Lojinha - Versão VB6"
-   ClientHeight    =   7770
-   ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   19275
+   ClientHeight    =   7800
+   ClientLeft      =   225
+   ClientTop       =   570
+   ClientWidth     =   15540
    BeginProperty Font 
       Name            =   "Tahoma"
       Size            =   8.25
@@ -16,10 +16,10 @@ Begin VB.Form frm_Main
       Strikethrough   =   0   'False
    EndProperty
    LinkTopic       =   "Form1"
-   ScaleHeight     =   7770
-   ScaleWidth      =   19275
+   ScaleHeight     =   7800
+   ScaleMode       =   0  'User
+   ScaleWidth      =   40000
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton bt_caixas 
       Caption         =   "Caixa"
       Height          =   615
@@ -31,7 +31,7 @@ Begin VB.Form frm_Main
    Begin VB.CommandButton bt_ValidCPF 
       Caption         =   "Validador de CPF"
       Height          =   615
-      Left            =   15120
+      Left            =   11520
       TabIndex        =   3
       Top             =   6720
       Width           =   1215
@@ -39,7 +39,7 @@ Begin VB.Form frm_Main
    Begin VB.CommandButton bt_CorFundo 
       Caption         =   "Alterar cor de Fundo"
       Height          =   615
-      Left            =   16560
+      Left            =   12960
       TabIndex        =   2
       Top             =   6720
       Width           =   1215
@@ -47,7 +47,7 @@ Begin VB.Form frm_Main
    Begin VB.CommandButton bt_fechar 
       Caption         =   "Fechar"
       Height          =   375
-      Left            =   18000
+      Left            =   14400
       TabIndex        =   1
       Top             =   6960
       Width           =   1095
@@ -61,14 +61,15 @@ Begin VB.Form frm_Main
       Top             =   120
       Width           =   18975
    End
-   Begin VB.Label Label1 
+   Begin VB.Label lbl_menu 
+      AutoSize        =   -1  'True
       BackColor       =   &H80000016&
       Caption         =   "Sem conexão ao banco de dados - nenhuma ação será salva"
-      Height          =   255
+      Height          =   195
       Left            =   120
       TabIndex        =   4
       Top             =   7440
-      Width           =   5295
+      Width           =   4350
    End
 End
 Attribute VB_Name = "frm_Main"
@@ -84,14 +85,18 @@ Public SQL As String
 Public libcon As ADODB.Connection
 Public sqlstr As String
 Public isDBconected As Boolean
+Public databaseName As String
+
 
 
 
 Private Sub bt_caixas_Click()
-    
+    databaseName = "lojinha"
     mdl_connection.dbconect
     If isDBconected Then
         frm_caixas.Show
+        lbl_menu.Caption = "Conexão estabelecida - Banco de dados " & databaseName
+        
     End If
     
 
@@ -124,3 +129,9 @@ End Sub
 Public Function comandoSql(cmsSql)
 
 End Function
+
+Private Sub Label1_Click()
+
+End Sub
+
+
