@@ -88,6 +88,11 @@ Public sqlstr As String
 
 
 
+Private Sub bt_caixas_Click()
+    frm_caixas.Show
+    
+End Sub
+
 Private Sub bt_CorFundo_Click()
     MsgBox "Esse botão vai alterar a cor de fundo do aplicativo", vbInformation, "Aviso de Utilidade Pública"
 End Sub
@@ -112,12 +117,5 @@ Private Sub frm_Menu_DblClick()
 
 End Sub
 
-Public Function ComandoSQL(cmsSql)
-
-End Function
-
-Private Sub Label1_Click()
-
-End Sub
 
 

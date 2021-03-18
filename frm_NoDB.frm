@@ -74,6 +74,11 @@ Private Sub bt_CriarBD_Click()  'TODO verificar sempre se tem todas as tabelas a
     
 End Sub
 
+Private Sub bt_fechar_Click()
+    Unload Me
+    
+End Sub
+
 Private Sub Form_Load()
     databaseName = "lojinha"
     

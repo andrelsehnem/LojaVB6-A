@@ -3,8 +3,6 @@ Public cn As ADODB.Connection
 Public rs As ADODB.Recordset
 Dim comandToDb As String
 
-
-
 Function Dbconect()
 
         On Error GoTo erroConexao
@@ -40,8 +38,3 @@ Function ComandoSQL(strcmd As String)
     
 End Function
 
-
-Function CreateDB()
-    
-    
-End Function
