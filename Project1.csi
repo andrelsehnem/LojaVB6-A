@@ -1,5 +1,6 @@
 [History]
-1=#P0#=mb	#P1#=conectaBD1	#P2#=LojaVb6/frm_Main/conectaBD1	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210316090344	#P7#=0	#P8#=-1	.
-2=#P0#=mb	#P1#=conectaBD	#P2#=LojaVb6/frm_Main/conectaBD	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210316082322	#P7#=0	#P8#=0	.
-3=#P0#=mb	#P1#=Connecta	#P2#=LojaVb6/mdl_conexao/Connecta	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210316090431	#P7#=0	#P8#=25	.
-4=#P0#=mb	#P1#=Command1_Click	#P2#=LojaVb6/frm_caixas/Command1_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20210316081619	#P7#=0	#P8#=0	.
+1=#P0#=mb	#P1#=ComandoSQL	#P2#=LojaVb6/mdl_connection/ComandoSQL	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210318114133	#P7#=0	#P8#=3	.
+2=#P0#=mb	#P1#=bt_ConectaBD_Click	#P2#=LojaVb6/frm_NoDB/bt_ConectaBD_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20210318114120	#P7#=0	#P8#=4	.
+3=#P0#=mb	#P1#=bt_CriarBD_Click	#P2#=LojaVb6/frm_NoDB/bt_CriarBD_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20210318114044	#P7#=0	#P8#=14	.
+4=#P0#=mb	#P1#=Dbconect	#P2#=LojaVb6/mdl_connection/Dbconect	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20210318113745	#P7#=0	#P8#=20	.
+5=#P0#=mb	#P1#=Command1_Click	#P2#=LojaVb6/frm_caixas/Command1_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20210316081619	#P7#=0	#P8#=0	.
