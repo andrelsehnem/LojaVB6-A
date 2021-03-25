@@ -50,16 +50,20 @@ Private Sub bt_ConectaBD_Click()
     databaseName = "lojinha"
     Dbconect (databaseName)
         
+    If isConected Then
     frm_Main.lbl_menu.Caption = "Conex?o estabelecida - Banco de dados " & databaseName
     frm_Main.Show
     Unload Me
-
+    Else
+    MsgBox ("Conexao não estabelecida, verifique se já não esta conectado ou banco nao existe")
+    End If
+     
 End Sub
 
 Private Sub bt_CriarBD_Click()  'TODO verificar sempre se tem todas as tabelas aqui'
     databaseName = "lojinha"
     ServerConection
-    
+    On Error GoTo erroCriacaoBanco
     'Cria o banco'"
     ComandoSQL ("CREATE DATABASE " & frm_NoDB.databaseName)
     Dbconect (databaseName)
@@ -76,11 +80,13 @@ Private Sub bt_CriarBD_Click()  'TODO verificar sempre se tem todas as tabelas a
     'trigger configDataHoje no login
     ComandoSQL ("CREATE TRIGGER `dataDeHoje` BEFORE INSERT ON `log_login` FOR EACH ROW SET NEW.data = NOW()")
     
+erroCriacaoBanco:
+    MsgBox ("Ocorreu um erro, verifique se já não existe o banco e as tabelas")
+    
     
 End Sub
 
 Private Sub bt_fechar_Click()
     Unload Me
-    databaseName = "lojinha"
 End Sub
 

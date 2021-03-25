@@ -2,10 +2,12 @@ Attribute VB_Name = "mdl_connection"
 Public cn As ADODB.Connection
 Public rs As ADODB.Recordset
 Dim comandToDb As String
+Public isConected As Boolean
+
 
 Function Dbconect(nomeBanco As String)
 
-       ' On Error GoTo erroConexao
+        On Error GoTo erroConexao
         
         
         'nomeBanco = "lojinha"
@@ -13,18 +15,19 @@ Function Dbconect(nomeBanco As String)
         
         ServerConection
         comandToDb = "use " + nomeBanco + ";"
-        MsgBox (comandToDb)
+        
         ComandoSQL (comandToDb)
         
         
         frm_NoDB.isDBconected = True
         
         MsgBox "Conexão com o banco estabelecida", vbInformation, "Conectado"
-        
+        isConected = True
+                
         Exit Function
         
-'erroConexao:
-'       MsgBox "Ocorreu um erro na conexão!, tente novamente.", vbInformation, "Aviso"
+erroConexao:
+       MsgBox "Ocorreu um erro na conexão!, tente novamente.", vbInformation, "Aviso"
         
         
 End Function
