@@ -2,16 +2,19 @@ VERSION 5.00
 Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "msdatgrd.ocx"
 Begin VB.Form frm_caixas 
+   BorderStyle     =   4  'Fixed ToolWindow
    Caption         =   "Caixas Disponiveis"
    ClientHeight    =   4890
-   ClientLeft      =   3720
-   ClientTop       =   5370
+   ClientLeft      =   3645
+   ClientTop       =   5295
    ClientWidth     =   8805
    LinkTopic       =   "frm_caixas"
    MaxButton       =   0   'False
+   MinButton       =   0   'False
    Moveable        =   0   'False
    ScaleHeight     =   4890
    ScaleWidth      =   8805
+   ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton bt_atualizaBancos 
       Caption         =   "Att"
@@ -135,7 +138,7 @@ Begin VB.Form frm_caixas
          EndProperty
       EndProperty
    End
-   Begin VB.CommandButton Command1 
+   Begin VB.CommandButton bt_fechar 
       Caption         =   "Fechar"
       Height          =   495
       Left            =   7440
@@ -159,6 +162,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub bt_atualizaBancos_Click()
     'TODO atualizar grid que mostra os caixas
+    Unload Me
+    frm_caixas.Show
     
 End Sub
 

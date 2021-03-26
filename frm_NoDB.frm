@@ -79,6 +79,8 @@ Private Sub bt_CriarBD_Click()  'TODO verificar sempre se tem todas as tabelas a
     ComandoSQL ("CREATE TRIGGER configUpdate BEFORE UPDATE ON configuracoes FOR EACH ROW SET new.data = NOW()")
     'trigger configDataHoje no login
     ComandoSQL ("CREATE TRIGGER `dataDeHoje` BEFORE INSERT ON `log_login` FOR EACH ROW SET NEW.data = NOW()")
+    'Tabela clientes
+    ComandoSQL ("CREATE TABLE `clientes` (   `codigo` INT(4) NOT NULL AUTO_INCREMENT,    `nome` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci', `cpf` VARCHAR(11) NOT NULL COLLATE 'utf8_general_ci',   `nascimento` DATE NOT NULL, `rua` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8_general_ci',  `numeroRua` INT(5) NULL DEFAULT NULL,   `cidade` VARCHAR(20) NULL DEFAULT NULL COLLATE 'utf8_general_ci',   PRIMARY KEY (`codigo`) USING BTREE)COLLATE='utf8_general_ci' ENGINE=InnoDB;")
     
 erroCriacaoBanco:
     MsgBox ("Ocorreu um erro, verifique se já não existe o banco e as tabelas")

@@ -61,6 +61,23 @@ Begin VB.Form frm_Main
       TabIndex        =   0
       Top             =   120
       Width           =   15375
+      Begin VB.CommandButton bt_clientes 
+         Caption         =   "Clientes"
+         Height          =   615
+         Left            =   360
+         TabIndex        =   6
+         Top             =   600
+         Width           =   1335
+      End
+      Begin VB.Frame frm_operacional 
+         BackColor       =   &H80000016&
+         Caption         =   "Operacional"
+         Height          =   6015
+         Left            =   120
+         TabIndex        =   7
+         Top             =   240
+         Width           =   1935
+      End
    End
    Begin VB.Label lbl_menu 
       AutoSize        =   -1  'True
@@ -93,6 +110,10 @@ Private Sub bt_caixas_Click()
     
 End Sub
 
+Private Sub bt_clientes_Click()
+frm_clientes.Show
+End Sub
+
 Private Sub bt_CorFundo_Click()
     MsgBox "Esse botão vai alterar a cor de fundo do aplicativo", vbInformation, "Aviso de Utilidade Pública"
 End Sub
@@ -105,9 +126,14 @@ Private Sub bt_ValidCPF_Click()
     MsgBox "Esse botão vai validar um CPF", vbInformation, "Aviso de Utilidade Pública"
 End Sub
 
+
 Public Sub Form_Load()
     
     ComandoSQL ("insert into log_login (pc,appLanguage) VALUES('pcAndre', 'VB6')")
+
+End Sub
+
+Private Sub Frame1_DragDrop(Source As Control, X As Single, Y As Single)
 
 End Sub
 
