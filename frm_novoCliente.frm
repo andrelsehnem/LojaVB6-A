@@ -82,22 +82,27 @@ Private Sub Form_Load()
     Set rs = New ADODB.Recordset
     'cn.CursorLocation = adUseClient
     'cn.ConnectionString = mdl_connection.StringConexao
-    cn.CursorLocation = adUseClient
+    'cn.CursorLocation = adUseClient
     
     
     Dim codigoCliente As Integer
     codigoCliente = 1
     
-    SQL = "SELECT * FROM clientes ORDER BY codigo DESC LIMIT 1"
-    rs.Open SQL, cn, adOpenStatic, adLockOptimistic
+    Set rs = cn.Execute("SELECT max(codigo) as codigo FROM clientes")
+    
+    'SQL = "SELECT * FROM clientes ORDER BY codigo DESC LIMIT 1"
+   ' rs.Open SQL, cn, adOpenStatic, adLockOptimistic
     'rs.AddNew
-           
-    codigoCliente = rs.Fields("codigo") + 1
-    'codigoCliente = codigoCliente + 1
+    
+    If rs!codigo = 0 Then
+        codigoCliente = 1
+    Else
+        codigoCliente = rs.Fields("codigo") + 1
+    End If
     
     
+    lbl_codigoCliente.Caption = rs!codigo
     
-
     
     
     lbl_codigoCliente.Caption = "Código " & codigoCliente
