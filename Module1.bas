@@ -4,15 +4,12 @@ Public rs As ADODB.Recordset
 Dim comandToDb As String
 Public isConected As Boolean
 
-
 Function Dbconect(nomeBanco As String)
 
         On Error GoTo erroConexao
         
         
-        'nomeBanco = "lojinha"
-       
-        
+        nomeBanco = "lojinha"
         ServerConection
         comandToDb = "use " + nomeBanco + ";"
         
@@ -31,7 +28,6 @@ erroConexao:
         
         
 End Function
-
 
 Function ComandoSQL(strcmd As String)
     
@@ -57,5 +53,10 @@ Function ServerConection()
 erroConexao:
        MsgBox "Ocorreu um erro na conexão!, tente novamente.", vbInformation, "Aviso"
         
+End Function
 
+
+Function returnDados()
+    
+    
 End Function

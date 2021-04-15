@@ -15,6 +15,22 @@ Begin VB.Form frm_clientes
    ScaleHeight     =   6975
    ScaleWidth      =   13935
    ShowInTaskbar   =   0   'False
+   Begin VB.CommandButton bt_atualiza 
+      Caption         =   "Att"
+      Height          =   615
+      Left            =   11280
+      TabIndex        =   3
+      Top             =   6240
+      Width           =   735
+   End
+   Begin VB.CommandButton bt_fechar 
+      Caption         =   "Fechar"
+      Height          =   615
+      Left            =   12240
+      TabIndex        =   2
+      Top             =   6240
+      Width           =   1455
+   End
    Begin VB.CommandButton bt_novoCliente 
       Caption         =   "Novo Cliente"
       Height          =   615
@@ -150,8 +166,19 @@ Private Sub Adodc1_WillMove(ByVal adReason As ADODB.EventReasonEnum, adStatus As
 End Sub
 
 
+Private Sub bt_atualiza_Click()
+    grid_clientes.Refresh
+End Sub
+
+Private Sub bt_fechar_Click()
+    Unload Me
+    
+End Sub
+
 Private Sub bt_novoCliente_Click()
     frm_novoCliente.Show
     
 
 End Sub
+
+

@@ -53,10 +53,11 @@ Private Sub bt_ConectaBD_Click()
     If isConected Then
     frm_Main.lbl_menu.Caption = "Conex?o estabelecida - Banco de dados " & databaseName
     frm_Main.Show
-    Unload Me
+    
     Else
     MsgBox ("Conexao não estabelecida, verifique se já não esta conectado ou banco nao existe")
     End If
+   
      
 End Sub
 

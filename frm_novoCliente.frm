@@ -14,7 +14,7 @@ Begin VB.Form frm_novoCliente
       Left            =   2640
       MaxLength       =   8
       TabIndex        =   5
-      Top             =   1440
+      Top             =   1680
       Width           =   2535
    End
    Begin VB.TextBox txt_CPF 
@@ -23,7 +23,7 @@ Begin VB.Form frm_novoCliente
       MaxLength       =   11
       TabIndex        =   3
       Text            =   " "
-      Top             =   1440
+      Top             =   1680
       Width           =   2295
    End
    Begin VB.TextBox txt_nomeCliente 
@@ -31,7 +31,15 @@ Begin VB.Form frm_novoCliente
       Left            =   240
       MaxLength       =   50
       TabIndex        =   0
-      Top             =   600
+      Top             =   960
+      Width           =   4935
+   End
+   Begin VB.Label lbl_codigoCliente 
+      Caption         =   "Código "
+      Height          =   375
+      Left            =   240
+      TabIndex        =   6
+      Top             =   120
       Width           =   4935
    End
    Begin VB.Label lbl_nascimento 
@@ -39,7 +47,7 @@ Begin VB.Form frm_novoCliente
       Height          =   255
       Left            =   2640
       TabIndex        =   4
-      Top             =   1080
+      Top             =   1440
       Width           =   2535
    End
    Begin VB.Label lbl_CPF 
@@ -47,7 +55,7 @@ Begin VB.Form frm_novoCliente
       Height          =   255
       Left            =   240
       TabIndex        =   2
-      Top             =   1080
+      Top             =   1440
       Width           =   2295
    End
    Begin VB.Label lbl_nomeCliente 
@@ -55,7 +63,7 @@ Begin VB.Form frm_novoCliente
       Height          =   375
       Left            =   240
       TabIndex        =   1
-      Top             =   240
+      Top             =   600
       Width           =   2775
    End
 End
@@ -64,3 +72,38 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public cn As ADODB.Connection
+Public rs As ADODB.Recordset
+
+
+Private Sub Form_Load()
+  
+    Set cn = New ADODB.Connection
+    Set rs = New ADODB.Recordset
+    'cn.CursorLocation = adUseClient
+    'cn.ConnectionString = mdl_connection.StringConexao
+    cn.CursorLocation = adUseClient
+    
+    
+    Dim codigoCliente As Integer
+    codigoCliente = 1
+    
+    SQL = "SELECT * FROM clientes ORDER BY codigo DESC LIMIT 1"
+    rs.Open SQL, cn, adOpenStatic, adLockOptimistic
+    'rs.AddNew
+           
+    codigoCliente = rs.Fields("codigo") + 1
+    'codigoCliente = codigoCliente + 1
+    
+    
+    
+
+    
+    
+    lbl_codigoCliente.Caption = "Código " & codigoCliente
+    
+    Set rs = Nothing
+
+
+End Sub
+
