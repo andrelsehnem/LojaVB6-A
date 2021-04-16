@@ -30,7 +30,7 @@ erroConexao:
 End Function
 
 Function ComandoSQL(strcmd As String)
-    
+    'cn.Open
     rs.Open strcmd, cn, adOpenDynamic, adLockReadOnly
     
 End Function
@@ -56,7 +56,16 @@ erroConexao:
 End Function
 
 
-Function returnDados()
-    
-    
+Public Function SelectFrom(strcmd As String, campoBD As String)
+
+        Dim retorno As String
+        
+        Set rs = cn.Execute(strcmd)
+        retorno = rs.Fields(campoBD)
+        'Pra esse de cima da pra usar tbm rs!campo
+        
+        SelectFrom = retorno
+        rs.Close
+        'cn.Close
+        
 End Function
