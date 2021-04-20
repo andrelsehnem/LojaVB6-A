@@ -77,6 +77,14 @@ Begin VB.Form frm_Main
          TabIndex        =   7
          Top             =   240
          Width           =   1935
+         Begin VB.CommandButton bt_produtos 
+            Caption         =   "Produtos"
+            Height          =   615
+            Left            =   240
+            TabIndex        =   8
+            Top             =   1200
+            Width           =   1335
+         End
       End
    End
    Begin VB.Label lbl_menu 

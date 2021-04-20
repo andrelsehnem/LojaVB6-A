@@ -211,7 +211,7 @@ Private Sub bt_gravar_Click()
     
     'ComandoSQL ("INSERT INTO clientes (nome, cpf, nascimento, rua, numeroRua, bairro, cidade, estado) VALUES ('" & txt_nomeCliente.Text & "'," & txt_CPF.Text & ",'" & _
     CDate(txt_nascimento.Text) & "','" & txt_rua.Text & "'," & CInt(txt_num.Text) & ",'" & txt_bairro.Text & "','" & txt_cidade.Text & "','" & txt_estado.Text & "')")
-    
+
     
     
 End Sub
@@ -243,3 +243,4 @@ Function PegaCodCliente()
 
 
 End Function
+

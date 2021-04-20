@@ -167,7 +167,9 @@ End Sub
 
 
 Private Sub bt_atualiza_Click()
-    grid_clientes.Refresh
+    ad_clientes.Refresh
+    
+    
 End Sub
 
 Private Sub bt_fechar_Click()

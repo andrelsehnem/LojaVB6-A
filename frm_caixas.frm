@@ -162,8 +162,13 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub bt_atualizaBancos_Click()
     'TODO atualizar grid que mostra os caixas
+    Adodc1.Refresh
+    
+    
+End Sub
+
+Private Sub bt_fechar_Click()
     Unload Me
-    frm_caixas.Show
     
 End Sub
 

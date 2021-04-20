@@ -85,25 +85,40 @@ Private valor As Double
 
 
 Private Sub bt_cancelar_Click()
-Unload Me
+    Unload Me
 
 End Sub
 
 Private Sub bt_criar_Click()
-
+    Dim desc As String
+    Dim valor As Double
     'TODO validar se os campos estão todos preenchidos, se não estiverem abrir um mensagem dizendo para preencher
     
-    desc = txt_Descricao.Text
-    valor = txt_valorCaixa.Text
     
+    If txt_Descricao.Text = "" Then
+        MsgBox "Preencha com um valor de descrição", vbCritical, "Atenção"
+    Else
+        desc = txt_Descricao.Text
+         If txt_valorCaixa.Text = "" Then
+            MsgBox "Preencha com um valor inicial para o caixa", vbCritical, "Atenção"
+         Else
+            valor = CDbl(txt_valorCaixa.Text)
+            Unload Me
+        End If
+    End If
     
-
-    'if valores validos
-    ComandoSQL ("insert into caixas (descricao,valor,appLanguageLog) VALUES('" & desc & "'," & valor & ",'VB6')")
-    Unload Me
+   
+    
+    'mdl_connection.ComandoSQL()
+    
     'else
     'cria aviso que não ta certo
 
+End Sub
+
+
+Private Sub Form_Load()
+    lbl_numCaixa.Caption = "Caixa número " & mdl_connection.SelectFrom("SELECT max(codigo) as codigo FROM caixas", "codigo") + 1
 End Sub
 
 
