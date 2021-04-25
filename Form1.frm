@@ -138,7 +138,9 @@ End Sub
 Public Sub Form_Load()
     
     ComandoSQL ("insert into log_login (pc,appLanguage) VALUES('pcAndre', 'VB6')")
-
+    Unload frm_NoDB
+    
+    
 End Sub
 
 Private Sub Frame1_DragDrop(Source As Control, X As Single, Y As Single)
