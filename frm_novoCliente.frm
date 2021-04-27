@@ -206,8 +206,6 @@ Private cpf As String
 Private validacao As Boolean
 
 
-
-
 Private Sub bt_cancelar_Click()
     Unload Me
     
@@ -219,6 +217,11 @@ Private Sub bt_gravar_Click()
     validacao = validaData
     'quando retorna true é que deu certo, então depois fazer as funções iguais da data pra os campos necessários e no final fazer um if para ver se validacao é TRUE ou FALS
     
+    If validacao Then
+        insereCliente
+        MsgBox "Cliente Cadastrado"
+    End If
+    
     
     MsgBox validacao
     
@@ -227,20 +230,15 @@ End Sub
 
 Private Sub Form_Load()
     validacao = False
-    
     PegaCodCliente
-    
 End Sub
 
 
 Function PegaCodCliente()
-    
     Dim codigoCliente As Integer
-    
     Dim tempCod As String
     
     tempCod = mdl_connection.SelectFrom("SELECT max(codigo) as codigo FROM clientes", "codigo")
-    
     codigoCliente = CInt(tempCod)
     
     If codigoCliente = 0 Then
@@ -250,8 +248,6 @@ Function PegaCodCliente()
     End If
         
     lbl_codigoCliente.Caption = "Codigo: " & codigoCliente
-
-
 End Function
 
 Public Function insereCliente()
@@ -274,3 +270,10 @@ erroData:
 MsgBox "Preencha a data de nascimento corretamente"
 validaData = False
 End Function
+
+
+Private Function validaCPF()
+
+
+End Function
+
