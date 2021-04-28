@@ -12,6 +12,7 @@ validaData = False
 End Function
 
 
+
 'deixar essa função até não terminar a DLL
 
 Public Function validaCPF(CPFtest As String)

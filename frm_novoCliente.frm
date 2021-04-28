@@ -273,7 +273,9 @@ End Function
 
 
 Private Function validaCPF()
-
+'TODO: Mudar na dll as nomenclaturas
+Dim Calculo As New DLL_Andre.Class1
+Debug.Print Calculo.validaCPF("07039208989")
 
 End Function
 
