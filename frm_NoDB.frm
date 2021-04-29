@@ -93,6 +93,3 @@ Private Sub bt_fechar_Click()
     Unload Me
 End Sub
 
-Private Sub Form_Load()
-
-End Sub

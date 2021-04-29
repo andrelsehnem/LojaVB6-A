@@ -20,8 +20,8 @@ Begin VB.Form frm_novoCliente
       _ExtentY        =   661
       _Version        =   393216
       AllowPrompt     =   -1  'True
-      MaxLength       =   8
-      Format          =   "dd-mm-yyyy"
+      AutoTab         =   -1  'True
+      MaxLength       =   11
       PromptChar      =   "_"
    End
    Begin MSMask.MaskEdBox msk_nascimento 
@@ -212,18 +212,26 @@ Private Sub bt_cancelar_Click()
 End Sub
 
 Private Sub bt_gravar_Click()
+
     
-    MsgBox validacao
+    
+    validacao = validaCPF
+    If validacao = False Then
+        MsgBox "Preencha um CPF válido"
+        Exit Sub
+        End If
     validacao = validaData
+    If validacao = False Then
+        MsgBox "Preencha a data de nascimento corretamente"
+        Exit Sub
+        End If
     'quando retorna true é que deu certo, então depois fazer as funções iguais da data pra os campos necessários e no final fazer um if para ver se validacao é TRUE ou FALS
     
     If validacao Then
         insereCliente
         MsgBox "Cliente Cadastrado"
     End If
-    
-    
-    MsgBox validacao
+
     
     
 End Sub
@@ -267,15 +275,18 @@ Private Function validaData()
         validaData = True
         Exit Function
 erroData:
-MsgBox "Preencha a data de nascimento corretamente"
 validaData = False
 End Function
 
-
 Private Function validaCPF()
-'TODO: Mudar na dll as nomenclaturas
-Dim Calculo As New DLL_Andre.Class1
-Debug.Print Calculo.validaCPF("07039208989")
-
+    Dim dll_andre As New dll_andre.Validacoes
+    On Error GoTo erroCPF
+        cpf = msk_cpf.Text
+        Debug.Print cpf
+        validaCPF = dll_andre.validaCPF(cpf)
+        Debug.Print dll_andre.validaCPF(cpf)
+        Exit Function
+erroCPF:
+        validaCPF = False
 End Function
 
