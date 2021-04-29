@@ -205,7 +205,6 @@ Private nascimento As Date
 Private cpf As String
 Private validacao As Boolean
 
-
 Private Sub bt_cancelar_Click()
     Unload Me
     
@@ -213,26 +212,28 @@ End Sub
 
 Private Sub bt_gravar_Click()
 
-    
-    
+    If txt_nomeCliente = "" Then
+        MsgBox "Informe o nome do cliente", vbExclamation
+        Exit Sub
+        End If
     validacao = validaCPF
     If validacao = False Then
-        MsgBox "Preencha um CPF válido"
+        MsgBox "Preencha um CPF válido", vbExclamation
         Exit Sub
         End If
     validacao = validaData
     If validacao = False Then
-        MsgBox "Preencha a data de nascimento corretamente"
+        MsgBox "Preencha a data de nascimento corretamente", vbExclamation
         Exit Sub
         End If
-    'quando retorna true é que deu certo, então depois fazer as funções iguais da data pra os campos necessários e no final fazer um if para ver se validacao é TRUE ou FALS
+        
+    'quando retorna true é que deu certo, então depois fazer as funções iguais da data pra os campos necessários e no final fazer um if para ver se validacao é TRUE ou FALSE
     
     If validacao Then
         insereCliente
         MsgBox "Cliente Cadastrado"
+        Unload Me
     End If
-
-    
     
 End Sub
 
@@ -260,12 +261,11 @@ End Function
 
 Public Function insereCliente()
     
-    MsgBox ("INSERT INTO clientes (nome, cpf, nascimento, rua, numeroRua, bairro, cidade, estado) VALUES ('" & txt_nomeCliente.Text & "'," & cpf & ",'" & _
-    nacimento & "','" & txt_rua.Text & "'," & txt_num.Text & ",'" & txt_bairro.Text & "','" & txt_cidade.Text & "','" & txt_estado.Text & "')")
+    'MsgBox ("INSERT INTO clientes (nome, cpf, nascimento, rua, numeroRua, bairro, cidade, estado) VALUES ('" & txt_nomeCliente.Text & "'," & cpf & ",'" & _
+    nascimento & "','" & txt_rua.Text & "'," & Format(txt_num.Text, nnnn) & ",'" & txt_bairro.Text & "','" & txt_cidade.Text & "','" & txt_estado.Text & "')")
     
-    'ComandoSQL ("INSERT INTO clientes (nome, cpf, nascimento, rua, numeroRua, bairro, cidade, estado) VALUES ('" & txt_nomeCliente.Text & "'," & txt_CPF.Text & ",'" & _
-    CDate(txt_nascimento.Text) & "','" & txt_rua.Text & "'," & CInt(txt_num.Text) & ",'" & txt_bairro.Text & "','" & txt_cidade.Text & "','" & txt_estado.Text & "')")
-
+    ComandoSQL ("INSERT INTO clientes (nome, cpf, nascimento, rua, numeroRua, bairro, cidade, estado) VALUES ('" & txt_nomeCliente.Text & "'," & cpf & ",'" & _
+    Format(nascimento, "yyyy-mm-dd") & "','" & txt_rua.Text & "'," & Format(txt_num.Text, nnnn) & ",'" & txt_bairro.Text & "','" & txt_cidade.Text & "','" & txt_estado.Text & "')")
 
 End Function
 
